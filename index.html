@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>xueyanhui</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="images/login.js"></script>
+<link href="css/login2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>学研汇开发原型<sup>2020</sup></h1>
+
+<div class="login" style="margin-top:50px;">
+    <div class="header" style="font-size: 30px;line-height: 45px;text-align: center;font-family: 'Microsoft Yahei'">
+        快速登录
+    </div>    
+  
+    
+    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
+
+            <!--登录-->
+            <div class="web_login" id="web_login">
+               
+               
+               <div class="login-box">
+    
+            
+			<div class="login_form">
+				<form action="" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
+               <input type="hidden" name="to" value="log"/>
+                <div class="uinArea" id="uinArea">
+                <label class="input-tips" for="u">帐号：</label>
+                <div class="inputOuter" id="uArea">
+                    
+                    <input type="text" id="u" name="username" class="inputstyle"/>
+                </div>
+                </div>
+                <div class="pwdArea" id="pwdArea">
+               <label class="input-tips" for="p">密码：</label> 
+               <div class="inputOuter" id="pArea">
+                    
+                    <input type="password" id="p" name="p" class="inputstyle"/>
+                </div>
+                </div>
+               
+                    <div style="padding-left:50px;margin-top:20px;line-height: 41px;"><div  value="登 录" style="width:150px;" class="button_blue" id="loginBtn">登录</div></div>
+              </form>
+           </div>
+           
+            	</div>
+               
+            </div>
+            <!--登录end-->
+  </div>
+
+  <!--注册-->
+    <div class="qlogin" id="qlogin" style="display: none; ">
+   
+    <div class="web_login"><form name="form2" id="regUser" accept-charset="utf-8"  action="" method="post">
+	      <input type="hidden" name="to" value="reg"/>
+		      		       <input type="hidden" name="did" value="0"/>
+        <ul class="reg_form" id="reg-ul">
+        		<div id="userCue" class="cue">快速注册请注意格式</div>
+                <li>
+                	
+                    <label for="user"  class="input-tips2">用户名：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="user" name="user" maxlength="16" class="inputstyle2"/>
+                    </div>
+                    
+                </li>
+                
+                <li>
+                <label for="passwd" class="input-tips2">密码：</label>
+                    <div class="inputOuter2">
+                        <input type="password" id="passwd"  name="passwd" maxlength="16" class="inputstyle2"/>
+                    </div>
+                    
+                </li>
+                <li>
+                <label for="passwd2" class="input-tips2">确认密码：</label>
+                    <div class="inputOuter2">
+                        <input type="password" id="passwd2" name="" maxlength="16" class="inputstyle2" />
+                    </div>
+                    
+                </li>
+                
+                <li>
+                 <label for="qq" class="input-tips2">QQ：</label>
+                    <div class="inputOuter2">
+                       
+                        <input type="text" id="qq" name="qq" maxlength="10" class="inputstyle2"/>
+                    </div>
+                   
+                </li>
+                
+                <li>
+                    <div class="inputArea">
+                        <input type="button" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="同意协议并注册"/> <a href="#" class="zcxy" target="_blank">注册协议</a>
+                    </div>
+                    
+                </li><div class="cl"></div>
+            </ul></form>
+           
+    
+    </div>
+   
+    
+    </div>
+    <!--注册end-->
+</div>
+<div class="jianyi">*原型只能通过Chrome浏览器访问</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- 存储服务 -->
+<script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+<script>
+    var APP_ID = '4LMtHfKrTfiVrDcRNV936FoT-gzGzoHsz';
+    var APP_KEY = 'c9hWsdUsGA5kMWTbqNEWiV2d';
+
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    /*var Task = AV.Object.extend("Role");
+    var task = new Task();*/
+    var task  = new AV.Query("login");
+    task.find().then(function(data){
+        var info = data[0].attributes;
+        $("#loginBtn").off("mousedown mouseup click").on("mousedown mouseup click",function(){
+            var userName = $("#u").val();
+            var passWord = $("#p").val();
+            if((userName===info.username)&&(passWord===info.password)){
+                                alert('登陆成功！');
+                                window.location.href = 'https://xueYanHuiProject.github.io/design/index.html#g=1&p=%E7%9B%B8%E4%BA%B2%E4%BA%A4%E5%8F%8B';
+            }else{
+                alert("账号或密码不正确");
+            }
+        });
+    },function(err) {
+        //错误信息 err
+    });
+</script>
+</body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<section class="selectContainer">
+    <section class="selectItem" v-for="(item,index) in list" :key="index">{{item.name}}</section>
+</section>
+<script>
+    list = res.list;//后台获取的数据
+
+</script>
+</body>
+</html>
