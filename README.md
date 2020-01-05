@@ -1,2 +1,2 @@
-# lovelyLfieTeam.github.io
-团队协作工具
+# xueYanHuiProject.github.io
+学研汇开发原型文档
