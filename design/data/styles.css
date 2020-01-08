@@ -13,6 +13,8 @@
 }
 .box_3 {
 }
+.ellipse {
+}
 .image {
 }
 .button {
@@ -117,4 +119,12 @@
   text-align:left;
 }
 .flow_shape {
+}
+.paragraph1 {
+  text-align:left;
+}
+.image1 {
+  color:#000000;
+}
+.shape {
 }
